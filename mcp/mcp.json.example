@@ -1,0 +1,90 @@
+{
+    "mcpServers":  {
+                       "shamela":  {
+                                       "transport":  "stdio",
+                                       "enabled":  true,
+                                       "command":  "node",
+                                       "args":  [
+                                                    "C:\\dev\\mcp\\shamela-mcp\\dist\\index.js"
+                                                ],
+                                       "env":  {
+                                                   "SHAMELA_INSTALL_ROOT":  "C:\\shamela4",
+                                                   "SHAMELA_JRE":  "java"
+                                               }
+                                   },
+                       "makale":  {
+                                      "transport":  "stdio",
+                                      "enabled":  true,
+                                      "command":  "uv",
+                                      "args":  [
+                                                   "run",
+                                                   "--project",
+                                                   "C:\\dev\\mcp\\makale",
+                                                   "makale",
+                                                   "serve"
+                                               ]
+                                  },
+                       "yargi":  {
+                                     "transport":  "stdio",
+                                     "enabled":  true,
+                                     "command":  "uv",
+                                     "args":  [
+                                                  "run",
+                                                  "--project",
+                                                  "C:\\dev\\mcp\\yargi-mcp",
+                                                  "yargi-mcp"
+                                              ]
+                                 },
+                       "hyperframes-local":  {
+                                                 "transport":  "stdio",
+                                                 "enabled":  true,
+                                                 "command":  "node",
+                                                 "args":  [
+                                                              "C:\\dev\\mcp\\hyperframes-mcp\\index.mjs"
+                                                          ]
+                                             },
+                       "chatcut":  {
+                                       "transport":  "stdio",
+                                       "enabled":  true,
+                                       "command":  "C:\\Users\\ozbayenes123-ops\\AppData\\Local\\Programs\\ChatCut\\ChatCut.exe",
+                                       "args":  [
+                                                    "C:\\Users\\ozbayenes123-ops\\AppData\\Local\\Programs\\ChatCut\\resources\\app.asar\\out\\main\\mcp\\server.js"
+                                                ],
+                                       "env":  {
+                                                   "CHATCUT_MCP_SOCKET":  "\\\\.\\pipe\\chatcut-mcp-ozbayenes123-ops",
+                                                   "CHATCUT_MCP_TOOLS_CACHE":  "C:\\Users\\ozbayenes123-ops\\AppData\\Roaming\\ChatCut\\mcp-tools-cache.json",
+                                                   "ELECTRON_RUN_AS_NODE":  "1"
+                                               }
+                                   },
+                       "zotero":  {
+                                      "transport":  "stdio",
+                                      "enabled":  true,
+                                      "command":  "uv",
+                                      "args":  [
+                                                   "run",
+                                                   "--project",
+                                                   "C:\\dev\\mcp\\zotero-mcp-src",
+                                                   "zotero-mcp"
+                                               ],
+                                      "env":  {
+                                                  "ZOTERO_LOCAL":  "true"
+                                              }
+                                  },
+                       "notion":  {
+                                      "transport":  "http",
+                                      "enabled":  true,
+                                      "url":  "https://mcp.notion.com/mcp"
+                                  },
+                       "bridge":  {
+                                      "transport":  "stdio",
+                                      "enabled":  true,
+                                      "command":  "uv",
+                                      "args":  [
+                                                   "run",
+                                                   "--project",
+                                                   "C:\\dev\\mcp\\bridge-mcp",
+                                                   "bridge-mcp"
+                                               ]
+                                  }
+                   }
+}

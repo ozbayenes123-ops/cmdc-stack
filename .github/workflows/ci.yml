@@ -1,0 +1,47 @@
+name: ci
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Manifest gecerli mi
+        shell: pwsh
+        run: |
+          $manifest = Get-Content stack.manifest.json -Raw | ConvertFrom-Json
+          if (-not $manifest.servers) { throw 'servers alani yok' }
+          $managed = @($manifest.servers | Where-Object { $_.kind -eq 'managed' })
+          Write-Host ("sunucu: " + $manifest.servers.Count + " / yonetilen: " + $managed.Count)
+
+      - name: PowerShell sozdizimi
+        shell: pwsh
+        run: |
+          $errors = @()
+          Get-ChildItem scripts/*.ps1 | ForEach-Object {
+            $tokens = $null
+            $err = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$err)
+            if ($err.Count -gt 0) { $errors += ($_.Name + ': ' + $err.Count + ' hata') }
+          }
+          if ($errors.Count -gt 0) { throw ($errors -join '; ') }
+          Write-Host 'PowerShell dosyalari ayristirildi'
+
+      - name: Python sozdizimi
+        shell: pwsh
+        run: |
+          python -m py_compile tools/mcp_smoke.py
+          Write-Host 'mcp_smoke.py derlendi'
+
+      - name: Duman testi (DryRun)
+        shell: pwsh
+        run: |
+          ./scripts/register-mcp.ps1 -InstallRoot $env:TEMP/cmdc-ci -OutputPath $env:TEMP/mcp.preview.json
+          $json = Get-Content $env:TEMP/mcp.preview.json -Raw | ConvertFrom-Json
+          if (-not $json.mcpServers) { throw 'mcpServers uretilmedi' }
+          Write-Host ("uretilen sunucu sayisi: " + ($json.mcpServers.PSObject.Properties | Measure-Object).Count)

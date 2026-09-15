@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "installRoot": "C:\\dev\\mcp",
+  "skillsTarget": "%USERPROFILE%\\.commandcode\\skills",
+  "mcpConfigPath": "%USERPROFILE%\\.commandcode\\mcp.json",
+  "servers": [
+    {
+      "name": "bridge",
+      "dir": "bridge-mcp",
+      "kind": "managed",
+      "url": "https://github.com/ozbayenes123-ops/bridge-mcp.git",
+      "version": "v0.2.0",
+      "register": true,
+      "command": "uv",
+      "args": ["run", "--project", "${DIR}", "bridge-mcp"],
+      "smokeArgs": ["run", "--no-sync", "--project", "${DIR}", "bridge-mcp"],
+      "env": {},
+      "sync": ["uv", "sync", "--project", "${DIR}"],
+      "smoke": { "want": ["bridge_health"] }
+    },
+    {
+      "name": "makale",
+      "dir": "makale",
+      "kind": "managed",
+      "url": "https://github.com/ozbayenes123-ops/makale.git",
+      "version": "v5.1.0",
+      "register": true,
+      "command": "uv",
+      "args": ["run", "--project", "${DIR}", "makale", "serve"],
+      "smokeArgs": ["run", "--no-sync", "--project", "${DIR}", "makale", "serve"],
+      "env": {},
+      "sync": ["uv", "sync", "--project", "${DIR}"],
+      "smoke": { "want": ["doc_status"] }
+    },
+    {
+      "name": "yargi",
+      "dir": "yargi-mcp",
+      "kind": "managed",
+      "url": "https://github.com/ozbayenes123-ops/yargi-mcp.git",
+      "version": "v0.2.2",
+      "register": true,
+      "command": "uv",
+      "args": ["run", "--project", "${DIR}", "yargi-mcp"],
+      "smokeArgs": ["run", "--no-sync", "--project", "${DIR}", "yargi-mcp"],
+      "env": {},
+      "sync": ["uv", "sync", "--project", "${DIR}"],
+      "smoke": { "want": [] }
+    },
+    {
+      "name": "zotero",
+      "dir": "zotero-mcp-src",
+      "kind": "managed",
+      "url": "https://github.com/ozbayenes123-ops/zotero-mcp-local-write.git",
+      "version": "v0.4.0",
+      "register": true,
+      "command": "uv",
+      "args": ["run", "--project", "${DIR}", "zotero-mcp"],
+      "smokeArgs": ["run", "--no-sync", "--project", "${DIR}", "zotero-mcp"],
+      "env": { "ZOTERO_LOCAL": "true" },
+      "sync": ["uv", "sync", "--project", "${DIR}"],
+      "smoke": { "want": ["zotero_search_items", "zotero_item_metadata"] }
+    },
+    {
+      "name": "commandcode-skills",
+      "dir": "commandcode-skills",
+      "kind": "skills",
+      "url": "https://github.com/ozbayenes123-ops/commandcode-skills.git",
+      "version": "main",
+      "register": false
+    },
+    {
+      "name": "shamela",
+      "dir": "shamela-mcp",
+      "kind": "external",
+      "register": true,
+      "command": "node",
+      "args": ["${DIR}\\dist\\index.js"],
+      "env": {
+        "SHAMELA_INSTALL_ROOT": "C:\\shamela4",
+        "SHAMELA_JRE": "${JAVA}"
+      },
+      "smoke": { "want": ["shamela_search_pages"] }
+    },
+    {
+      "name": "hyperframes-local",
+      "dir": "hyperframes-mcp",
+      "kind": "external",
+      "register": true,
+      "command": "node",
+      "args": ["${DIR}\\index.mjs"],
+      "env": {},
+      "smoke": { "want": [] }
+    },
+    {
+      "name": "zotero-bin",
+      "dir": "zotero-bin",
+      "kind": "external",
+      "register": false,
+      "command": "${DIR}\\zotero-mcp.exe",
+      "args": [],
+      "env": { "ZOTERO_LOCAL": "true" },
+      "smoke": { "want": ["zotero_search_items"] }
+    }
+  ]
+}
