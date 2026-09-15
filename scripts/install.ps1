@@ -91,9 +91,9 @@ if (-not $SkipRegister) {
     Write-Host ""
     Write-Host "== mcp.json kaydi =="
     $register = Join-Path $PSScriptRoot 'register-mcp.ps1'
-    $registerArgs = @('-ManifestPath', $ManifestPath, '-InstallRoot', $Root)
-    if ($DryRun) { $registerArgs += '-DryRun' }
-    & $register $registerArgs
+    $registerArgs = @{ ManifestPath = $ManifestPath; InstallRoot = $Root }
+    if ($DryRun) { $registerArgs['DryRun'] = $true }
+    & $register @registerArgs
 }
 
 if (-not $SkipSkills) {
