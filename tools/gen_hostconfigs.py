@@ -15,8 +15,6 @@ for s in mf["servers"]:
                     "command": expand(s["command"], s["dir"]),
                     "args": [expand(a, s["dir"]) for a in s["args"]],
                     "env": {k: expand(v, s["dir"]) for k, v in s.get("env", {}).items()}})
-servers.append({"name": "laya-router", "dir": "laya-router",
-                "command": "uv", "args": ["run", "--project", ROOT + "\\laya-router", "laya-router"], "env": {}})
 
 mcs = {s["name"]: {"command": s["command"], "args": s["args"], **({"env": s["env"]} if s["env"] else {})} for s in servers}
 out = HERE / "mcp" / "hostconfigs"

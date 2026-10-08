@@ -5,7 +5,7 @@
       "args": [
         "run",
         "--project",
-        "C:\\dev\\mcp\\bridge-mcp",
+        "C:\\\\dev\\\\mcp\\bridge-mcp",
         "bridge-mcp"
       ]
     },
@@ -14,7 +14,7 @@
       "args": [
         "run",
         "--project",
-        "C:\\dev\\mcp\\makale",
+        "C:\\\\dev\\\\mcp\\makale",
         "makale",
         "serve"
       ]
@@ -24,7 +24,7 @@
       "args": [
         "run",
         "--project",
-        "C:\\dev\\mcp\\yargi-mcp",
+        "C:\\\\dev\\\\mcp\\yargi-mcp",
         "yargi-mcp"
       ]
     },
@@ -33,7 +33,7 @@
       "args": [
         "run",
         "--project",
-        "C:\\dev\\mcp\\zotero-mcp-src",
+        "C:\\\\dev\\\\mcp\\zotero-mcp-src",
         "zotero-mcp"
       ],
       "env": {
@@ -43,7 +43,7 @@
     "shamela": {
       "command": "node",
       "args": [
-        "C:\\dev\\mcp\\shamela-mcp\\dist\\index.js"
+        "C:\\\\dev\\\\mcp\\shamela-mcp\\dist\\index.js"
       ],
       "env": {
         "SHAMELA_INSTALL_ROOT": "C:\\shamela4",
@@ -53,16 +53,7 @@
     "hyperframes-local": {
       "command": "node",
       "args": [
-        "C:\\dev\\mcp\\hyperframes-mcp\\index.mjs"
-      ]
-    },
-    "laya-router": {
-      "command": "uv",
-      "args": [
-        "run",
-        "--project",
-        "C:\\dev\\mcp\\laya-router",
-        "laya-router"
+        "C:\\\\dev\\\\mcp\\hyperframes-mcp\\index.mjs"
       ]
     }
   }
