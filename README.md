@@ -1,6 +1,5 @@
 # cmdc-stack
 
-Bu PC'deki MCP sunucularını ve skill'leri tek manifestten kuran, senkronlayan ve
 denetleyen şemsiye repo. Repolar ayrı kalır; bu depo yalnızca **kurulum, kayıt,
 senkron ve sağlık** işlerini üstlenir.
 
