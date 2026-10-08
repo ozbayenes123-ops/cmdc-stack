@@ -73,3 +73,9 @@ deposudur). `sync.ps1` "ileride" derse commit/push bekleyen iş var demektir.
 - `zotero` sunucusu Zotero masaüstü uygulamasının açık olmasını ister.
 
 Ayrıntılar: `docs/prerequisites.md`, `docs/troubleshooting.md`.
+
+## Diger uygulamalara kurulum (Claude Desktop / Codex / ChatGPT)
+
+Hazir yamalar `mcp/hostconfigs/` altindadir: `claude_desktop_config.json.example`,
+`codex.config.toml.example`, `CHATGPT.md`. Manifest degisince
+`python tools/gen_hostconfigs.py` ile yenileyin. Detay: `mcp/hostconfigs/README.md`.

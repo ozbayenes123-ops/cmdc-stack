@@ -1,0 +1,36 @@
+# Codex CLI: %USERPROFILE%\.codex\config.toml
+
+[mcp_servers.bridge]
+command = "uv"
+args = ["run", "--project", "C:\dev\mcp\bridge-mcp", "bridge-mcp"]
+
+[mcp_servers.makale]
+command = "uv"
+args = ["run", "--project", "C:\dev\mcp\makale", "makale", "serve"]
+
+[mcp_servers.yargi]
+command = "uv"
+args = ["run", "--project", "C:\dev\mcp\yargi-mcp", "yargi-mcp"]
+
+[mcp_servers.zotero]
+command = "uv"
+args = ["run", "--project", "C:\dev\mcp\zotero-mcp-src", "zotero-mcp"]
+
+[mcp_servers.zotero.env]
+ZOTERO_LOCAL = "true"
+
+[mcp_servers.shamela]
+command = "node"
+args = ["C:\dev\mcp\shamela-mcp\dist\index.js"]
+
+[mcp_servers.shamela.env]
+SHAMELA_INSTALL_ROOT = "C:\shamela4"
+SHAMELA_JRE = "java"
+
+[mcp_servers.hyperframes-local]
+command = "node"
+args = ["C:\dev\mcp\hyperframes-mcp\index.mjs"]
+
+[mcp_servers.laya-router]
+command = "uv"
+args = ["run", "--project", "C:\dev\mcp\laya-router", "laya-router"]

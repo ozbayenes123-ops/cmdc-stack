@@ -1,0 +1,69 @@
+{
+  "mcpServers": {
+    "bridge": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--project",
+        "C:\\dev\\mcp\\bridge-mcp",
+        "bridge-mcp"
+      ]
+    },
+    "makale": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--project",
+        "C:\\dev\\mcp\\makale",
+        "makale",
+        "serve"
+      ]
+    },
+    "yargi": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--project",
+        "C:\\dev\\mcp\\yargi-mcp",
+        "yargi-mcp"
+      ]
+    },
+    "zotero": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--project",
+        "C:\\dev\\mcp\\zotero-mcp-src",
+        "zotero-mcp"
+      ],
+      "env": {
+        "ZOTERO_LOCAL": "true"
+      }
+    },
+    "shamela": {
+      "command": "node",
+      "args": [
+        "C:\\dev\\mcp\\shamela-mcp\\dist\\index.js"
+      ],
+      "env": {
+        "SHAMELA_INSTALL_ROOT": "C:\\shamela4",
+        "SHAMELA_JRE": "java"
+      }
+    },
+    "hyperframes-local": {
+      "command": "node",
+      "args": [
+        "C:\\dev\\mcp\\hyperframes-mcp\\index.mjs"
+      ]
+    },
+    "laya-router": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--project",
+        "C:\\dev\\mcp\\laya-router",
+        "laya-router"
+      ]
+    }
+  }
+}
