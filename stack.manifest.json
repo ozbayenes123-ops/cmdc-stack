@@ -61,10 +61,10 @@
       "smoke": { "want": ["zotero_search_items", "zotero_item_metadata"] }
     },
     {
-      "name": "commandcode-skills",
-      "dir": "commandcode-skills",
+      "name": "skills-hub",
+      "dir": "skills-hub",
       "kind": "skills",
-      "url": "https://github.com/ozbayenes123-ops/commandcode-skills.git",
+      "url": "https://github.com/ozbayenes123-ops/skills-hub.git",
       "version": "main",
       "register": false
     },
